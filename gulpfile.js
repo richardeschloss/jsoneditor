@@ -198,6 +198,30 @@ gulp.task('bundle-css', function (done) {
   done()
 })
 
+// bundle theme CSS files
+gulp.task('bundle-themes', function (done) {
+  const concatOptions = { rebaseUrls: false }
+  const minifyOptions = { rebase: false }
+  const themes = ['github-dark', 'github-light']
+
+  themes.forEach(theme => {
+    gulp
+      .src([`src/themes/${theme}.scss`])
+      .pipe(
+        sass({
+          // importer: tildeImporter
+        })
+      )
+      .pipe(concatCss(NAME + '.' + theme + '.css', concatOptions))
+      .pipe(gulp.dest(DIST))
+      .pipe(concatCss(NAME + '.' + theme + '.min.css', concatOptions))
+      .pipe(minifyCSS(minifyOptions))
+      .pipe(gulp.dest(DIST))
+  })
+
+  done()
+})
+
 // create a folder img and copy the icons
 gulp.task('copy-img', function (done) {
   gulp.src(IMAGE).pipe(gulp.dest(DIST + '/img'))
@@ -229,8 +253,8 @@ gulp.task('minify-minimalist', function (done) {
 // The watch task (to automatically rebuild when the source code changes)
 // Does only generate jsoneditor.js and jsoneditor.css, and copy the image
 // Does NOT minify the code and does NOT generate the minimalist version
-gulp.task('watch', gulp.series('bundle', 'bundle-css', 'copy-img', function () {
-  gulp.watch(['src/**/*'], gulp.series('bundle', 'bundle-css', 'copy-img'))
+gulp.task('watch', gulp.series('bundle', 'bundle-css', 'bundle-themes', 'copy-img', function () {
+  gulp.watch(['src/**/*'], gulp.series('bundle', 'bundle-css', 'bundle-themes', 'copy-img'))
 }))
 
 // The default task (called when you run `gulp`)
@@ -241,6 +265,7 @@ gulp.task('default', gulp.series(
     'copy-img',
     'copy-docs',
     'bundle-css',
+    'bundle-themes',
     gulp.series('bundle', 'minify'),
     gulp.series('bundle-minimalist', 'minify-minimalist')
   )
