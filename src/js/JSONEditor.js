@@ -97,6 +97,8 @@ if (typeof Promise === 'undefined') {
  *                                                         in 'tree', 'view', or 'form' mode before
  *                                                         the "show more/show all" buttons appear.
  *                                                         100 by default.
+ *                               {String} theme      Theme name. Available themes:
+ *                                                    'default', 'github-dark', 'github-light'
  *
  * @param {Object | undefined} json JSON object
  */
@@ -365,7 +367,7 @@ JSONEditor.prototype.setSchema = function (schema, schemaRefs) {
         ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'))
       }
     } catch (err) {
-      console.warn('Failed to create an instance of Ajv, JSON Schema validation is not available. Please use a JSONEditor bundle including Ajv, or pass an instance of Ajv as via the configuration option `ajv`.')
+      console.warn('Failed to create an instance of Ajv, JSON Schema validation is not available. Please use a JSONEditor bundle including Ajv, or pass an instance of Ajv as via the configuration[...]
     }
 
     if (ajv) {
