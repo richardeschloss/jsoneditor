@@ -1,0 +1,47 @@
+// GitHub Light Theme Colors
+// Default light theme based on GitHub's light palette
+
+$jse-white: #ffffff !default;
+$jse-grey: #d0d7de !default;
+$jse-light-bg: #f6f8fa !default;
+$jse-blue: #0969da !default;
+$jse-content-color: #24292f !default;
+
+// Syntax highlighting colors from GitHub Light
+$jse-string: #0a3069 !default;
+$jse-number: #d1301a !default;
+$jse-boolean: #bf8700 !default;
+$jse-null: #0550ae !default;
+$jse-color-value: $jse-content-color !default;
+$jse-invalid: $jse-content-color !default;
+$jse-readonly: #57606a !default;
+$jse-empty: #d0d7de !default;
+$jse-preview: #f6f8fa !default;
+$jse-busy: #fff8c5 !default;
+$jse-busy-border-color: #d3c807 !default;
+
+$jse-error: #f85149aa !default;
+$jse-separator: #e1e4e8 !default;
+$jse-highlight-bg: #fff8c5 !default;
+$jse-highlight-border-color: #d3c807 !default;
+
+$jse-popover-bg: #6e7681 !default;
+$jse-bar-bg: $jse-light-bg !default;
+$jse-bar-border: $jse-empty !default;
+
+$jse-menu-color: $jse-empty !default;
+
+$jse-contextmenu-color: #eaeef2 !default;
+
+$jse-box-shadow: 2px 2px 12px rgba(31, 35, 40, 0.15) !default;
+$jse-box-shadow-sm: 0 0 5px rgba(0, 0, 0, 0.2) !default;
+$jse-box-shadow-inner: inset 0 0 10px rgba(0, 0, 0, 0.1) !default;
+
+$jse-date: #6e7681 !default;
+
+$jse-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !default;
+$jse-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !default;
+$jse-font-size: 14px !default;
+
+$jse-icons: "./img/jsoneditor-icons.svg" !default;
+$jse-icons-url: url($jse-icons) !default;
